@@ -1,0 +1,56 @@
+﻿@model QLVT.Models.LoaiVt
+
+@{
+    ViewData["Title"] = "Sửa Loại Vật Tư";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Sửa thông tin loại vật tư</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="SuaLoaiVT">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <!-- Mã Loại -->
+                        <div class="form-group mb-3">
+                            <label asp-for="MaLoai" class="control-label">Mã Loại</label>
+                            <input asp-for="MaLoai" class="form-control" readonly />
+                            <span asp-validation-for="MaLoai" class="text-danger"></span>
+                        </div>
+
+                        <!-- Tên Loại -->
+                        <div class="form-group mb-3">
+                            <label asp-for="TenLoai" class="control-label">Tên Loại</label>
+                            <input asp-for="TenLoai" class="form-control" placeholder="Nhập tên loại vật tư" />
+                            <span asp-validation-for="TenLoai" class="text-danger"></span>
+                        </div>
+
+                        <!-- Mô Tả -->
+                        <div class="form-group mb-3">
+                            <label asp-for="MoTa" class="control-label">Mô Tả</label>
+                            <input asp-for="MoTa" class="form-control" placeholder="Nhập mô tả loại vật tư" />
+                            <span asp-validation-for="MoTa" class="text-danger"></span>
+                        </div>
+
+                        <!-- Nút Submit và Trở về -->
+                        <div class="form-group d-flex justify-content-between">
+                            <input type="submit" value="Sửa Loại Vật Tư" class="btn btn-primary btn-lg" />
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">Trở Về Danh Sách</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
